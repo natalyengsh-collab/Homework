@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Present Simple or Continuous – Practice</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f6fd;--card:#fff;--text:#1f2a3d;--muted:#5d6b85;--a:#5b5bd6;--a2:#ff8a3d;--ok:#16874a;--bad:#d03a3a;--line:#d9e0f0;--soft:#eef0ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141f;--card:#1a1e2e;--text:#e9ecf6;--muted:#a3adc6;--a:#8a8aff;--a2:#ffa664;--ok:#4cc884;--bad:#ff7b7b;--line:#2c3350;--soft:#232845}}
+:root[data-theme="dark"]{--bg:#12141f;--card:#1a1e2e;--text:#e9ecf6;--muted:#a3adc6;--a:#8a8aff;--a2:#ffa664;--ok:#4cc884;--bad:#ff7b7b;--line:#2c3350;--soft:#232845}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:linear-gradient(135deg,var(--a),var(--a2));color:#fff;padding:26px 16px;text-align:center}
+header h1{margin:0;font-size:1.6rem}header p{margin:6px 0 0;opacity:.95}
+main{max-width:760px;margin:0 auto;padding:12px 16px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card h2{margin:0 0 4px;font-size:1.2rem;display:flex;gap:10px;align-items:center}
+.num{background:var(--a);color:#fff;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex:none}
+.hint{color:var(--muted);margin:0 0 12px;font-size:.95rem}
+input[type=text],select,textarea{font:inherit;padding:6px 10px;border-radius:9px;border:2px solid var(--line);background:var(--card);color:var(--text);max-width:100%}
+input[type=text]:focus,select:focus,textarea:focus{outline:none;border-color:var(--a)}
+.gap{width:150px}
+.good{border-color:var(--ok)!important}.wrong{border-color:var(--bad)!important}
+.text{background:var(--soft);padding:14px;border-radius:12px;line-height:2.1}
+.q{margin:10px 0}.q input[type=text]{width:100%;margin-top:4px}
+.w{display:inline-block;background:var(--soft);border-radius:8px;padding:1px 8px;margin:2px;font-size:.9rem;color:var(--muted)}
+.btns{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+button{font:inherit;font-weight:600;border:0;border-radius:12px;padding:10px 20px;background:var(--a);color:#fff;cursor:pointer}
+button.alt{background:transparent;color:var(--a);border:2px solid var(--a)}
+.res{font-weight:700}.res.ok{color:var(--ok)}
+.tom{background:var(--soft);padding:10px 14px;border-radius:12px;margin:8px 0}
+.tom select{width:100%;margin-top:4px}
+.jenni{margin:4px 0 4px 18px;padding:8px 12px;border-left:4px solid var(--a2)}
+.mk{font-weight:700;margin-left:6px}.mk.ok{color:var(--ok)}.mk.bad{color:var(--bad)}
+.ans{color:var(--ok);font-size:.9rem;display:block}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--a2));transition:width .4s}
+#out{width:100%;margin-top:10px;display:none}
+</style></head><body>
+<header><h1>Present Simple or Present Continuous? ✏️</h1><p>Exercises 3–6 · Check after each task, then send your result</p></header>
+<main>
+<div class="bar"><i id="bar"></i></div>
+
+<section class="card"><h2><span class="num">3</span>Complete the text</h2>
+<p class="hint">Use the present simple or present continuous of the verbs in brackets.</p>
+<div class="text" id="t3"></div>
+<div class="btns"><button onclick="chk(3)">Check</button><span class="res" id="r3"></span></div></section>
+
+<section class="card"><h2><span class="num">4</span>Write the questions</h2>
+<p class="hint">Use the present simple or present continuous. Don’t forget the question mark!</p>
+<div id="t4"></div>
+<div class="btns"><button onclick="chk(4)">Check</button><span class="res" id="r4"></span></div></section>
+
+<section class="card"><h2><span class="num">5</span>Complete the interview</h2>
+<p class="hint">Meet Jenni Layton. She’s a young runner who is training to do the London Marathon. Choose Tom’s question for each answer (use the questions from exercise 4).</p>
+<div id="t5"></div>
+<div class="btns"><button onclick="chk(5)">Check</button><span class="res" id="r5"></span></div></section>
+
+<section class="card"><h2><span class="num">6</span>Your own answers</h2>
+<p class="hint">Write true answers for three of the questions in exercise 4. Choose a question, then write your answer (at least 3 words).</p>
+<div id="t6"></div>
+<div class="btns"><button onclick="chk(6)">Check</button><span class="res" id="r6"></span></div></section>
+
+<section class="card"><h2>📨 Send to your teacher</h2>
+<p class="hint">Type your name, press the button, then send the result.</p>
+<div class="btns"><input type="text" id="name" placeholder="Your name"><button onclick="finish()">Check all</button></div>
+<div class="res" id="total" style="margin-top:10px"></div>
+<textarea id="out" rows="12" readonly></textarea>
+<div class="btns"><button id="sh" style="display:none" onclick="share()">Send…</button><button class="alt" id="cp" style="display:none" onclick="copyRes()">Copy result</button></div></section>
+</main>
+<script>
+const nz=s=>s.toLowerCase().replace(/[’‘`]/g,"'").replace(/[?.!,]/g,"").replace(/\s+/g," ").trim();
+const A3=[["takes"],["do"],["'m not doing","am not doing"],["is running","'s running"],["don't think","do not think"],["isn't wearing","is not wearing","'s not wearing"],["says"],["wants"]];
+const V3=["take","do","not do","run","not think","not wear","say","want"];
+const P3=["Here I am at the London Marathon. It’s one of the biggest running events in the world and it {1} place every year at the end of April. As you know, I usually {2} the marathon, but I {3} it this year because of a problem with my knee. My colleague, Dan Elliot, {4} the race for the first time today. It’s difficult to see people amongst the runners, but I {5} it’ll be difficult to see Dan this year. He {6} the usual running gear. He’s a giant banana! Dan {7} that it isn’t easy running in fancy dress, but he’s determined to finish the race. He {8} to raise £10,000 for a children’s charity. Good luck, Dan!"][0];
+document.getElementById("t3").innerHTML=P3.replace(/\{(\d)\}/g,(m,n)=>`<input type="text" class="gap" id="g${n-1}" autocomplete="off" placeholder="${n}. (${V3[n-1]})">`);
+const Q4=[["have got / you / an e-reader","Have you got an e-reader?"],["how often / you / listen / to music","How often do you listen to music?"],["what / you / do / before / you / go / to sleep","What do you do before you go to sleep?"],["what / you / read / at the moment","What are you reading at the moment?"],["what / you / think / of e-readers","What do you think of e-readers?"],["you / know / Justin Bieber","Do you know Justin Bieber?"],["you / study / for exams / right now","Are you studying for exams right now?"]];
+document.getElementById("t4").innerHTML=Q4.map((q,i)=>`<div class="q"><b>${i+1}</b> ${q[0].split(" / ").map(w=>`<span class="w">${w}</span>`).join("")}<input type="text" id="f${i}" autocomplete="off" placeholder="Write the question…"><span class="ans" id="f${i}a"></span></div>`).join("");
+const J=[["Most of the time, I play a lot of music at home and I always listen to music on my MP3 player when I’m running. It helps me concentrate.",1],["Of course I do! I love his music. I’ve got all his songs on my MP3 player.",5],["I find it difficult to fall asleep, so I always read in bed for about half an hour.",2],["The Hunger Games by Suzanne Collins, it’s science fiction and it’s really entertaining!",3],["Yes, I have. I got one for Christmas last year.",0],["They’re awesome. It’s amazing to have thousands of books on one small device. I never buy paper books anymore.",4],["No, not really. They start in June so I can concentrate on my running until the end of April.",6]];
+const qo=Q4.map((q,i)=>`<option value="${i}">${q[1]}</option>`).join("");
+document.getElementById("t5").innerHTML=J.map((j,i)=>`<div class="tom"><b>Tom ${i+1}:</b><select id="s${i}"><option value="">– choose the question –</option>${qo}</select><span class="mk" id="s${i}m"></span><div class="jenni"><b>Jenni:</b> ${j[0]}</div></div>`).join("");
+document.getElementById("t6").innerHTML=[0,1,2].map(i=>`<div class="q"><b>${i+1}</b> <select id="u${i}"><option value="">– choose a question –</option>${qo}</select><textarea id="ua${i}" rows="2" style="width:100%;margin-top:6px" placeholder="My answer…"></textarea></div>`).join("");
+const sc={3:0,4:0,5:0,6:0},mx={3:8,4:7,5:7,6:3},done={};
+const g=id=>document.getElementById(id);
+function paint(el,ok){el.classList.remove("good","wrong");el.classList.add(ok?"good":"wrong")}
+function mk(id,ok){const e=g(id);e.className="mk "+(ok?"ok":"bad");e.textContent=ok?"✓":"✗"}
+function chk(n){let s=0;
+ if(n===3)A3.forEach((a,i)=>{const e=g("g"+i),ok=a.includes(nz(e.value));if(ok)s++;paint(e,ok)});
+ if(n===4)Q4.forEach((q,i)=>{const e=g("f"+i),ok=nz(e.value)===nz(q[1]);if(ok)s++;paint(e,ok)});
+ if(n===5){const seen={};J.forEach((j,i)=>{const e=g("s"+i),ok=e.value!==""&&+e.value===j[1];if(ok)s++;paint(e,ok);mk("s"+i+"m",ok)})}
+ if(n===6){const used=new Set();[0,1,2].forEach(i=>{const q=g("u"+i),a=g("ua"+i);const ok=q.value!==""&&!used.has(q.value)&&a.value.trim().split(/\s+/).filter(Boolean).length>=3;used.add(q.value);paint(a,ok);paint(q,q.value!=="");if(ok)s++})}
+ sc[n]=s;done[n]=1;const r=g("r"+n),all=s===mx[n];
+ r.className="res"+(all?" ok":"");
+ r.textContent=n===6?(all?"🎉 Great! Your teacher will read your answers.":`${s}/3 – choose 3 different questions and write at least 3 words each.`):(all?`🎉 Perfect! ${s}/${mx[n]}`:`${s}/${mx[n]} – fix the red answers and check again.`);
+ const d=Object.values(sc).reduce((a,b)=>a+b,0),m=25;g("bar").style.width=(d/m*100)+"%"}
+function show(n){
+ if(n===3)A3.forEach((a,i)=>{g("g"+i).value=a[0];});
+ if(n===4)Q4.forEach((q,i)=>{g("f"+i).value=q[1]});
+ if(n===5)J.forEach((j,i)=>{g("s"+i).value=j[1]});
+ chk(n);g("r"+n).textContent+=" (answers shown)"}
+function finish(){[3,4,5,6].forEach(chk);const t=sc[3]+sc[4]+sc[5]+sc[6],m=25;
+ g("total").textContent=`Total: ${t}/${m}`;
+ const nm=g("name").value.trim()||"(no name)";
+ let txt=`Present Simple or Continuous – Ex. 3–6\nName: ${nm}\nEx 3: ${sc[3]}/8\nEx 4: ${sc[4]}/7\nEx 5: ${sc[5]}/7\nEx 6: ${sc[6]}/3\nTotal: ${t}/${m}\n\nMy answers (ex. 6):`;
+ [0,1,2].forEach(i=>{const q=g("u"+i).value;txt+=`\n${i+1}. ${q===""?"(no question)":Q4[q][1]} – ${g("ua"+i).value.trim()||"(no answer)"}`});
+ const o=g("out");o.value=txt;o.style.display="block";g("cp").style.display="inline-block";if(navigator.share)g("sh").style.display="inline-block"}
+function copyRes(){const o=g("out");o.select();try{navigator.clipboard.writeText(o.value)}catch(e){document.execCommand("copy")}g("cp").textContent="Copied ✓"}
+function share(){navigator.share({text:g("out").value}).catch(()=>{})}
+</script></body></html>
